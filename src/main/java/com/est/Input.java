@@ -1,4 +1,4 @@
-package est;
+package com.est;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -9,9 +9,6 @@ public class Input {
     private String sPath;
     private ArrayList<String> aDados;
 
-    /**
-     * @param sPath
-     */
     public Input(String sPath) {
         this.sPath = sPath;
         this.aDados = new ArrayList<>();

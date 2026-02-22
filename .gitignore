@@ -1,0 +1,14 @@
+# Pastas de build
+/target/
+
+# Arquivos de log
+*.log
+
+# Arquivos de classe
+*.class
+
+# Arquivos temporários do Eclipse/IntelliJ
+*.iml
+.idea/
+*.class
+*.DS_Store

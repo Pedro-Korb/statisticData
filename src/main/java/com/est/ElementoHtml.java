@@ -73,17 +73,4 @@ public class ElementoHtml {
    public String getConteudoTextual() {
       return sConteudoTextual;
    }
-
-
-   @Override
-   public String toString() {
-      return "{" +
-         "sTag='" + getTag() + "'," +
-         "oAtributo='" + getAtributos() + "'," +
-         "oStyle='" + getStyle() + "'," +
-         "aConteudo='" + getConteudo() + "'," +
-         "sConteudoTextual='" + getConteudoTextual() + "'" +
-      "}";
-   }
-   
 }

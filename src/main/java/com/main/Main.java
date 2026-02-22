@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         Input oInput = new Input("src\\main\\java\\com\\arquivo_texto");
-        Output oSaida = new Output("output\\arquivo_texto");
+        Output oSaida = new Output("output\\arquivo_texto.json");
 
         HashMap<String, String> oAtributosDivPrincipal = 
         new HashMap<String, String>() {{

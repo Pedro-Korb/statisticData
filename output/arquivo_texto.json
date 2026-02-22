@@ -1,44 +1,44 @@
 {
+   "tag": "div",
+   "conteudoTextual": null,
+   "conteudo": [
+      {
+         "tag": "h1",
+         "conteudoTextual": "Títul top das galáxia",
+         "conteudo": [],
+         "atributos": {
+            "id": "titulo_principal",
+            "class": "titulo"
+         },
+         "style": {
+            "color": "red",
+            "font-weight": "bold",
+            "font-size": "15px"
+         }
+      },
+      {
+         "tag": "p",
+         "conteudoTextual": "Conteúdo gerado para teste",
+         "conteudo": [],
+         "atributos": {
+            "id": "p_principal",
+            "class": "paragrafo"
+         },
+         "style": {
+            "color": "red",
+            "font-weight": "bold",
+            "font-size": "15px"
+         }
+      }
+   ],
+   "atributos": {
+      "id": "container",
+      "class": "box"
+   },
    "style": {
       "margin": "4px",
       "color": "red",
       "margin-color": "black",
       "font-size": "14px"
-   },
-   "tag": "div",
-   "atributos": {
-      "id": "container",
-      "class": "box"
-   },
-   "conteudoTextual": null,
-   "conteudo": [
-      {
-         "style": {
-            "color": "red",
-            "font-weight": "bold",
-            "font-size": "15px"
-         },
-         "tag": "h1",
-         "atributos": {
-            "id": "titulo_principal",
-            "class": "titulo"
-         },
-         "conteudoTextual": "Títul top das galáxia",
-         "conteudo": []
-      },
-      {
-         "style": {
-            "color": "red",
-            "font-weight": "bold",
-            "font-size": "15px"
-         },
-         "tag": "p",
-         "atributos": {
-            "id": "p_principal",
-            "class": "paragrafo"
-         },
-         "conteudoTextual": "Conteúdo gerado para teste",
-         "conteudo": []
-      }
-   ]
+   }
 }

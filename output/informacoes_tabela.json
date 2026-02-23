@@ -1,0 +1,44 @@
+{
+   "nomeTabela": "Enfermagem.csv",
+   "numeroLinhas": 9,
+   "numeroColunas": 4,
+   "nomeColunas": [
+      "Nome",
+      "Registro_Profissional",
+      "UF",
+      "Municipio"
+   ],
+   "dadosColunas": [
+      {
+         "nomeColuna": "Nome",
+         "tipoColuna": "STRING",
+         "quantidadeValoresFaltantes": 0,
+         "quantidadeValoresUnicos": 7,
+         "valorMaisFrequente": "BRB SERVICOS DE SAUDE LTDA ME"
+      },
+      {
+         "nomeColuna": "Registro_Profissional",
+         "tipoColuna": "DOUBLE",
+         "quantidadeValoresFaltantes": 0,
+         "media": 614565.6213333333,
+         "mediana": 684076.0,
+         "minimo": 413.592,
+         "maximo": 1060047.0,
+         "desvioPadrao": 352201.507233059
+      },
+      {
+         "nomeColuna": "UF",
+         "tipoColuna": "STRING",
+         "quantidadeValoresFaltantes": 0,
+         "quantidadeValoresUnicos": 2,
+         "valorMaisFrequente": "AM"
+      },
+      {
+         "nomeColuna": "Municipio",
+         "tipoColuna": "STRING",
+         "quantidadeValoresFaltantes": 0,
+         "quantidadeValoresUnicos": 3,
+         "valorMaisFrequente": "MANAUS"
+      }
+   ]
+}

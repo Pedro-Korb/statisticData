@@ -12,7 +12,7 @@ public class Output {
         this.sPath = sPath;
     }
 
-    public void write(Object data) {
+    public void criaArquivoTexto(Object data) {
         try {
             FileWriter fw = new FileWriter(this.sPath);
             PrintWriter pw = new PrintWriter(fw);

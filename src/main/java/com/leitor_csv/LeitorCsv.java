@@ -1,24 +1,83 @@
 package com.leitor_csv;
 
+import tech.tablesaw.api.BooleanColumn;
+import tech.tablesaw.api.NumericColumn;
+import tech.tablesaw.api.StringColumn;
 import tech.tablesaw.api.Table;
+import tech.tablesaw.columns.Column;
 import tech.tablesaw.io.csv.CsvReadOptions;
-import java.util.HashMap;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class LeitorCsv {
 
-   public static HashMap<String, String> getTipoColunas(String sPath) {
+   final static private char SEPARADOR_CSV = ';';
+
+
+   public static Table getTabela(String sPath) {
       CsvReadOptions oOptions = CsvReadOptions.builder(sPath)
-         .separator(';')
-         .build();
+            .separator(SEPARADOR_CSV)
+            .build();
 
-      Table oTable = Table.read().usingOptions(oOptions);
-      HashMap<String, String> oTipoColunas = new HashMap<String, String>();
-      
-      oTable.columns().forEach(column -> {
-         oTipoColunas.put(column.name(), column.type().name());
-      });
+      return Table.read().usingOptions(oOptions);
+   }
 
-      return oTipoColunas;
+   public static Map<String, Object> getDadosEstatisticos(Table table) {
+      Map<String, Object> tableMap = new LinkedHashMap<>();
+
+      tableMap.put("nomeTabela", table.name());
+      tableMap.put("numeroLinhas", table.rowCount());
+      tableMap.put("numeroColunas", table.columnCount());
+      tableMap.put("nomeColunas", table.columnNames());
+
+      List<Map<String, Object>> colunasInfo = new ArrayList<>();
+      for (Column<?> column : table.columns()) {
+         colunasInfo.add(getDadosColuna(column));
+      }
+      tableMap.put("dadosColunas", colunasInfo);
+      return tableMap;
+   }
+
+   private static Map<String, Object> getDadosColuna(Column<?> column) {
+      Map<String, Object> colunaMap = new LinkedHashMap<>();
+
+      colunaMap.put("nomeColuna", column.name());
+      colunaMap.put("tipoColuna", column.type().name());
+      colunaMap.put("quantidadeValoresFaltantes", column.countMissing());
+
+      if (column instanceof NumericColumn) {
+
+         NumericColumn<?> numCol = (NumericColumn<?>) column;
+
+         colunaMap.put("media", numCol.mean());
+         colunaMap.put("mediana", numCol.median());
+         colunaMap.put("minimo", numCol.min());
+         colunaMap.put("maximo", numCol.max());
+         colunaMap.put("desvioPadrao", numCol.standardDeviation());
+
+      }
+      if (column instanceof StringColumn) {
+         StringColumn strCol = (StringColumn) column;
+         colunaMap.put("quantidadeValoresUnicos", strCol.countUnique());
+
+         Table freqTable = strCol.countByCategory();
+         if (freqTable.rowCount() > 0) {
+            String valorMaisFrequente = freqTable.sortDescendingOn("Count")
+                                                .column(0)
+                                                .getString(0);
+
+            colunaMap.put("valorMaisFrequente", valorMaisFrequente);
+         }
+      }
+      else if (column instanceof BooleanColumn) {
+         BooleanColumn boolCol = (BooleanColumn) column;
+         colunaMap.put("quantidadeTrue", boolCol.countTrue());
+         colunaMap.put("quantidadeFalse", boolCol.countFalse());
+      }
+
+      return colunaMap;
    }
 }
-

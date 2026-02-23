@@ -1,15 +1,18 @@
 package com.main;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
-import com.est.ElementoHtml;
-import com.est.GeradorHtml;
 import com.est.GeradorJson;
+import com.leitor_csv.LeitorCsv;
 
 public class Main {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
 
-        System.out.println("teste");
+      ArrayList<HashMap<String, String>> aTipoCsv = new ArrayList<HashMap<String, String>>();
 
-    }
+      aTipoCsv.add(LeitorCsv.getTipoColunas("input_csv\\Leitos_2026.csv"));
+
+      GeradorJson.gerarJson(aTipoCsv, "output\\tipo_csv.json");
+   }
 }

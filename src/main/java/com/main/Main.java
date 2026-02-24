@@ -12,7 +12,7 @@ public class Main {
    public static void main(String[] args) {
 
 
-      GeradorJson.gerarJson(LeitorCsv.getDadosEstatisticos(LeitorCsv.getTabela("input_csv\\Enfermagem.csv")), "output\\informacoes_tabela.json");
+      GeradorJson.gerarJson(LeitorCsv.getDadosEstatisticos(LeitorCsv.getTabela("input_csv\\relatorio_pagamentos_2024.csv")), "output\\informacoes_tabela.json");
 
    }
 }

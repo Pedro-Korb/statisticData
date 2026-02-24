@@ -56,6 +56,7 @@ public class LeitorCsv {
          colunaMap.put("mediana", numCol.median());
          colunaMap.put("minimo", numCol.min());
          colunaMap.put("maximo", numCol.max());
+         colunaMap.put("soma", numCol.sum());
          colunaMap.put("desvioPadrao", numCol.standardDeviation());
 
       }

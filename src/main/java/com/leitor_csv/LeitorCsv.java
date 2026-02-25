@@ -8,18 +8,16 @@ import tech.tablesaw.columns.Column;
 import tech.tablesaw.io.csv.CsvReadOptions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class LeitorCsv {
 
-   final static private char SEPARADOR_CSV = ';';
-
-
-   public static Table getTabela(String sPath) {
+   public static Table getTabela(String sPath, char sSeparador) {
       CsvReadOptions oOptions = CsvReadOptions.builder(sPath)
-            .separator(SEPARADOR_CSV)
+            .separator(sSeparador)
             .build();
 
       return Table.read().usingOptions(oOptions);
@@ -42,43 +40,65 @@ public class LeitorCsv {
    }
 
    private static Map<String, Object> getDadosColuna(Column<?> column) {
-      Map<String, Object> colunaMap = new LinkedHashMap<>();
+      Map<String, Object> oDadosColuna = new LinkedHashMap<>();
 
-      colunaMap.put("nomeColuna", column.name());
-      colunaMap.put("tipoColuna", column.type().name());
-      colunaMap.put("quantidadeValoresFaltantes", column.countMissing());
+      oDadosColuna.put("nomeColuna", column.name());
+      oDadosColuna.put("tipoColuna", column.type().name());
+      oDadosColuna.put("quantidadeValoresFaltantes", column.countMissing());
 
       if (column instanceof NumericColumn) {
 
          NumericColumn<?> numCol = (NumericColumn<?>) column;
-
-         colunaMap.put("media", numCol.mean());
-         colunaMap.put("mediana", numCol.median());
-         colunaMap.put("minimo", numCol.min());
-         colunaMap.put("maximo", numCol.max());
-         colunaMap.put("soma", numCol.sum());
-         colunaMap.put("desvioPadrao", numCol.standardDeviation());
+         oDadosColuna.put("media", arredondar(numCol.mean()));
+         oDadosColuna.put("minimo", arredondar(numCol.min()));
+         oDadosColuna.put("maximo", arredondar(numCol.max()));
+         oDadosColuna.put("soma", arredondar(numCol.sum()));
+         oDadosColuna.put("desvioPadrao", arredondar(numCol.standardDeviation()));
+         oDadosColuna.put("variancia", arredondar(numCol.variance()));
+         oDadosColuna.put("amplitude", arredondar(numCol.max() - numCol.min()));
+         oDadosColuna.put("quartil_1", arredondar(numCol.quartile1()));
+         oDadosColuna.put("quartil_2_mediana", arredondar(numCol.median()));
+         oDadosColuna.put("quartil_3", arredondar(numCol.quartile3()));
+         oDadosColuna.put("intervalo_interquartil", arredondar(numCol.quartile3() - numCol.quartile1()));
 
       }
       if (column instanceof StringColumn) {
+
          StringColumn strCol = (StringColumn) column;
-         colunaMap.put("quantidadeValoresUnicos", strCol.countUnique());
+         oDadosColuna.put("quantidadeValoresUnicos", strCol.countUnique());
 
-         Table freqTable = strCol.countByCategory();
+         Table freqTable = strCol.countByCategory()
+                                 .sortDescendingOn("Count");
+
          if (freqTable.rowCount() > 0) {
-            String valorMaisFrequente = freqTable.sortDescendingOn("Count")
-                                                .column(0)
-                                                .getString(0);
+            String valorMaisFrequente = freqTable
+                                             .stringColumn(0)
+                                             .get(0);
 
-            colunaMap.put("valorMaisFrequente", valorMaisFrequente);
+            oDadosColuna.put("valorMaisFrequente", valorMaisFrequente);
+            Map<String, Object> maioresParticipacoes = new HashMap<>();
+            int limite = Math.min(3, freqTable.rowCount());
+
+            for (int i = 0; i < limite; i++) {
+                  int quantidade = freqTable.intColumn("Count").get(i);
+                  String categoria = freqTable.stringColumn(0).get(i);
+
+                  maioresParticipacoes.put("categoria_" + (i + 1), categoria);
+                  maioresParticipacoes.put("participacao_" + (i + 1), quantidade);
+                  maioresParticipacoes.put("percentual_" + (i + 1), arredondar(((double) quantidade / freqTable.intColumn("Count").sum()) * 100));
+            }
+            oDadosColuna.put("maioresParticipacoes", maioresParticipacoes);
          }
       }
       else if (column instanceof BooleanColumn) {
          BooleanColumn boolCol = (BooleanColumn) column;
-         colunaMap.put("quantidadeTrue", boolCol.countTrue());
-         colunaMap.put("quantidadeFalse", boolCol.countFalse());
+         oDadosColuna.put("quantidadeTrue", boolCol.countTrue());
+         oDadosColuna.put("quantidadeFalse", boolCol.countFalse());
       }
+      return oDadosColuna;
+   }
 
-      return colunaMap;
+   private static double arredondar(double valor) {
+      return Math.round(valor * 100.0) / 100.0;
    }
 }

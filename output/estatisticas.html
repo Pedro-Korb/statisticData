@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dados Estatísticos</title>
+      <style>
+      body {
+         font-family: 'Segoe UI', sans-serif;
+         background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+         margin: 0;
+         padding: 30px;
+         color: white;
+      }
+
+      .dashboard {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 20px;
+      }
+
+      .box {
+         background: #2f2f4f;
+         width: 250px;
+         padding: 20px;
+         border-radius: 15px;
+         box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+         transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .box:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+      }
+
+      .box h1 {
+         font-size: 16px;
+         margin: 0 0 10px 0;
+         color: #a0a0ff;
+      }
+
+      .valor {
+         font-size: 32px;
+         font-weight: bold;
+         margin: 10px 0;
+      }
+
+      .barra-container {
+         background: rgba(255,255,255,0.1);
+         border-radius: 20px;
+         height: 10px;
+         overflow: hidden;
+      }
+
+      .barra {
+         height: 100%;
+         background: linear-gradient(90deg, #4facfe, #00f2fe);
+         width: 70%;
+      }
+
+      .percentual {
+         font-size: 12px;
+         margin-top: 5px;
+         text-align: right;
+         opacity: 0.8;
+      }
+   </style>
+
+</head>
+<body>
+   <div>
+<div class="box" style="margin: 20px;">
+<h1>
+Nome da Tabela</h1>
+<div class="valor">
+relatorio_pagamentos_2024.csv</div>
+<div class="barra-container">
+<div style="width: 70%;" class="barra">
+</div>
+</div>
+</div>
+<div class="box" style="margin: 20px;">
+<h1>
+Número de Linhas</h1>
+<div class="valor">
+26843</div>
+<div class="barra-container">
+<div style="width: 70%;" class="barra">
+</div>
+</div>
+</div>
+<div class="box" style="margin: 20px;">
+<h1>
+Número de Colunas</h1>
+<div class="valor">
+11</div>
+<div class="barra-container">
+<div style="width: 70%;" class="barra">
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
+

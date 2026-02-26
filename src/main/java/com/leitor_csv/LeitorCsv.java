@@ -7,20 +7,41 @@ import tech.tablesaw.api.Table;
 import tech.tablesaw.columns.Column;
 import tech.tablesaw.io.csv.CsvReadOptions;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.nio.file.Files;
+import java.text.Normalizer;
 
 public class LeitorCsv {
 
    public static Table getTabela(String sPath, char sSeparador) {
+      try {
+         normalizarCsv(sPath);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
       CsvReadOptions oOptions = CsvReadOptions.builder(sPath)
             .separator(sSeparador)
             .build();
 
       return Table.read().usingOptions(oOptions);
+   }
+
+   public static void normalizarCsv(String sPathArquivo) throws IOException {
+      Path sPath = Paths.get(sPathArquivo);
+      List<String> aLinhas = Files.readAllLines(sPath, StandardCharsets.UTF_8);
+      List<String> aLinhasNormalizadas = aLinhas.stream()
+         .map(l -> Normalizer.normalize(l, Normalizer.Form.NFD)
+         .replaceAll("\\p{M}", ""))
+         .toList();
+      Files.write(sPath, aLinhasNormalizadas, StandardCharsets.UTF_8);
    }
 
    public static Map<String, Object> getDadosEstatisticos(Table table) {
@@ -47,7 +68,6 @@ public class LeitorCsv {
       oDadosColuna.put("quantidadeValoresFaltantes", column.countMissing());
 
       if (column instanceof NumericColumn) {
-
          NumericColumn<?> numCol = (NumericColumn<?>) column;
          oDadosColuna.put("media", arredondar(numCol.mean()));
          oDadosColuna.put("minimo", arredondar(numCol.min()));
@@ -60,10 +80,8 @@ public class LeitorCsv {
          oDadosColuna.put("quartil_2_mediana", arredondar(numCol.median()));
          oDadosColuna.put("quartil_3", arredondar(numCol.quartile3()));
          oDadosColuna.put("intervalo_interquartil", arredondar(numCol.quartile3() - numCol.quartile1()));
-
       }
-      if (column instanceof StringColumn) {
-
+      else if (column instanceof StringColumn) {
          StringColumn strCol = (StringColumn) column;
          oDadosColuna.put("quantidadeValoresUnicos", strCol.countUnique());
 

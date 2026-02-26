@@ -10,7 +10,7 @@ public class Main {
 
       GeradorJson.gerarJson(LeitorCsv.getDadosEstatisticos(LeitorCsv.getTabela("input_csv\\relatorio_pagamentos_2024.csv", ';')), "output\\informacoes_tabela.json");
 
-      GeradorEstatisticaHtml oTeste = new GeradorEstatisticaHtml(LeitorCsv.getDadosEstatisticos(LeitorCsv.getTabela("input_csv\\relatorio_pagamentos_2024.csv", ';')));
+      GeradorEstatisticaHtml oTeste = new GeradorEstatisticaHtml(LeitorCsv.getDadosEstatisticos(LeitorCsv.getTabela("input_csv\\student_productivity.csv", ',')));
 
       Output oOutputHtml = new Output("output\\estatisticas.html");
       oOutputHtml.criaArquivoTexto(oTeste.getHtmlEstatistica());

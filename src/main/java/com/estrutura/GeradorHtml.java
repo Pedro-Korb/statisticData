@@ -116,65 +116,57 @@ public class GeradorHtml {
 
    private static String getStyle() {
       return """
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
          <style>
-            body {
-               font-family: 'Segoe UI', sans-serif;
-               background: linear-gradient(135deg, #1e1e2f, #2b2b45);
-               margin: 0;
-               padding: 30px;
-               color: white;
-            }
-
-            .dashboard {
+            .header-resumo {
+               background: linear-gradient(135deg, #1f2235, #181a2a);
+               padding: 35px;
+               border-radius: 18px;
+               margin-bottom: 40px;
                display: flex;
-               flex-wrap: wrap;
-               gap: 20px;
+               justify-content: space-between;
+               align-items: center;
+               box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+               border: 1px solid rgba(255,255,255,0.05);
+               font-family: 'Inter', sans-serif;
             }
 
-            .box {
-               background: #2f2f4f;
-               width: 250px;
-               padding: 20px;
-               border-radius: 15px;
-               box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-               transition: transform 0.2s ease, box-shadow 0.2s ease;
+            .header-info h1 {
+               margin: 8px 0 0 0;
+               font-size: 30px;
+               font-weight: 600;
+               color: #ffffff;
+               letter-spacing: -0.5px;
             }
 
-            .box:hover {
-               transform: translateY(-5px);
-               box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+            .header-info .label {
+               font-size: 13px;
+               text-transform: uppercase;
+               letter-spacing: 1.5px;
+               color: #6c7293;
             }
 
-            .box h1 {
-               font-size: 16px;
-               margin: 0 0 10px 0;
-               color: #a0a0ff;
+            .header-metricas {
+               display: flex;
+               gap: 50px;
             }
 
-            .valor {
-               font-size: 32px;
-               font-weight: bold;
-               margin: 10px 0;
+            .metrica {
+               text-align: center;
             }
 
-            .barra-container {
-               background: rgba(255,255,255,0.1);
-               border-radius: 20px;
-               height: 10px;
-               overflow: hidden;
+            .metrica .numero {
+               font-size: 34px;
+               font-weight: 700;
+               display: block;
+               color: #4facfe;
             }
 
-            .barra {
-               height: 100%;
-               background: linear-gradient(90deg, #4facfe, #00f2fe);
-               width: 70%;
-            }
-
-            .percentual {
-               font-size: 12px;
-               margin-top: 5px;
-               text-align: right;
-               opacity: 0.8;
+            .metrica .descricao {
+               font-size: 13px;
+               margin-top: 6px;
+               color: #8f96b2;
+               letter-spacing: 0.5px;
             }
          </style>
       """;

@@ -28,11 +28,9 @@ public class GeradorEstatisticaHtml {
    }
 
    public String getHtmlEstatistica() {
-
       oDados = this.getDados();
-
       this.setCabecalho(this.getCabecalhoDados(oDados));
-
+      this.setConteudo(this.getConteudoDados());
       return GeradorHtml.gerarHtmlPagina(GeradorHtml.gerarHtml(this.getElementoGeral()), "pt-BR", "Dados Estatísticos", true);
    }
 
@@ -62,74 +60,70 @@ public class GeradorEstatisticaHtml {
 
    private void setCabecalho(CabecalhoDados oCabecalho) {
 
-      for (Dado oDado : oCabecalho.getDados()) {
+      String nomeArquivo = oCabecalho.getDados().get(0).getInformacao().toString();
+      String numeroLinhas = oCabecalho.getDados().get(1).getInformacao().toString();
+      String numeroColunas = oCabecalho.getDados().get(2).getInformacao().toString();
 
-         ElementoHtml titulo = new ElementoHtml()
-            .setTag("h1")
-            .setConteudoTextual(oDado.getAlias());
+      ElementoHtml labelArquivo = new ElementoHtml()
+         .setTag("span")
+         .addAtributo("class", "label")
+         .setConteudoTextual("Arquivo");
 
-         ElementoHtml valor = new ElementoHtml()
-            .setTag("div")
-            .addAtributo("class", "valor")
-            .setConteudoTextual(oDado.getInformacao().toString());
+      ElementoHtml tituloArquivo = new ElementoHtml()
+         .setTag("h1")
+         .setConteudoTextual(nomeArquivo);
 
-         ElementoHtml barra = new ElementoHtml()
-            .setTag("div")
-            .addAtributo("class", "barra")
-            .addAtributo("style", "width: 70%;");
+      ElementoHtml headerInfo = new ElementoHtml()
+         .setTag("div")
+         .addAtributo("class", "header-info")
+         .addConteudo(labelArquivo)
+         .addConteudo(tituloArquivo);
 
-         ElementoHtml barraContainer = new ElementoHtml()
-            .setTag("div")
-            .addAtributo("class", "barra-container")
-            .addConteudo(barra);
+      ElementoHtml numeroLinhasEl = new ElementoHtml()
+         .setTag("span")
+         .addAtributo("class", "numero")
+         .setConteudoTextual(String.valueOf(numeroLinhas));
 
-         ElementoHtml box = new ElementoHtml()
-            .setTag("div")
-            .addAtributo("class", "box")
-            .addStyle("margin", "20px")
-            .addConteudo(titulo)
-            .addConteudo(valor)
-            .addConteudo(barraContainer);
+      ElementoHtml descricaoLinhas = new ElementoHtml()
+         .setTag("span")
+         .addAtributo("class", "descricao")
+         .setConteudoTextual("Linhas");
 
-         this.getElementoGeral().addConteudo(box);
-      }
-   }
+      ElementoHtml metricaLinhas = new ElementoHtml()
+         .setTag("div")
+         .addAtributo("class", "metrica")
+         .addConteudo(numeroLinhasEl)
+         .addConteudo(descricaoLinhas);
 
-   private String gerarHtmlCabecalhoTeste(List<Object> aDados) {
+      ElementoHtml numeroColunasEl = new ElementoHtml()
+         .setTag("span")
+         .addAtributo("class", "numero")
+         .setConteudoTextual(String.valueOf(numeroColunas));
 
-      for (Object sValor : aDados) {
+      ElementoHtml descricaoColunas = new ElementoHtml()
+         .setTag("span")
+         .addAtributo("class", "descricao")
+         .setConteudoTextual("Colunas");
 
-         HashMap<String, String> oAtributosDivPrincipal = new HashMap<String, String>() {
-            {
-               put("id", "container");
-               put("class", "box");
-            }
-         };
+      ElementoHtml metricaColunas = new ElementoHtml()
+         .setTag("div")
+         .addAtributo("class", "metrica")
+         .addConteudo(numeroColunasEl)
+         .addConteudo(descricaoColunas);
 
-         HashMap<String, String> oStyleDivPrincipal = new HashMap<String, String>() {
-            {
-               put("width", "200px");
-               put("height", "200px");
-               put("font-size", "14px");
-               put("margin", "4px");
-               put("border", "5px solid black");
-               put("border-radius", "10px");
-               put("padding", "20px");
-            }
-         };
+      ElementoHtml headerMetricas = new ElementoHtml()
+         .setTag("div")
+         .addAtributo("class", "header-metricas")
+         .addConteudo(metricaLinhas)
+         .addConteudo(metricaColunas);
 
-         ElementoHtml oTitulo = new ElementoHtml()
-               .setTag("h1")
-               .setConteudoTextual(String.valueOf(sValor));
+      ElementoHtml headerResumo = new ElementoHtml()
+         .setTag("div")
+         .addAtributo("class", "header-resumo")
+         .addConteudo(headerInfo)
+         .addConteudo(headerMetricas);
 
-         ElementoHtml oDiv = new ElementoHtml()
-               .setTag("div")
-               .setAtributos(oAtributosDivPrincipal)
-               .setStyle(oStyleDivPrincipal)
-               .addConteudo(oTitulo);
-      }
-
-      return "sa";
+      this.getElementoGeral().addConteudo(headerResumo);
    }
 
    public Map<String, Object> getDados() {

@@ -27,7 +27,7 @@
          letter-spacing: -0.5px;
       }
 
-      .header-info .label {
+      .label {
          font-size: 13px;
          text-transform: uppercase;
          letter-spacing: 1.5px;
@@ -56,6 +56,192 @@
          color: #8f96b2;
          letter-spacing: 0.5px;
       }
+      .card-analise-string {
+         background: linear-gradient(135deg, #1f2235, #181a2a);
+         padding: 35px;
+         border-radius: 18px;
+         margin-bottom: 40px;
+         box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+         border: 1px solid rgba(255,255,255,0.05);
+         font-family: 'Inter', sans-serif;
+         color: #ffffff;
+      }
+
+      /* Título da coluna */
+      .titulo-coluna {
+         margin: 0 0 25px 0;
+         font-weight: bolder;
+         font-size: 25px;
+         text-transform: uppercase;
+         letter-spacing: 1.5px;
+         color: #5ab4d7;
+      }
+
+      /* Bloco de métricas */
+      .resumo-estatistico {
+         display: flex;
+         gap: 60px;
+         margin-bottom: 30px;
+      }
+
+      .resumo-estatistico p {
+         margin: 0;
+      }
+
+      /* Cada métrica */
+      .metrica-string {
+         text-align: center;
+      }
+
+      .metrica-string .numero {
+         font-size: 28px;
+         font-weight: 700;
+         display: block;
+         color: #4facfe;
+      }
+
+      .metrica-string .descricao {
+         font-size: 12px;
+         margin-top: 6px;
+         color: #8f96b2;
+         letter-spacing: 0.8px;
+         text-transform: uppercase;
+      }
+
+      /* Seção Top Participações */
+      .top-participacoes {
+         margin-top: 20px;
+      }
+
+      .top-participacoes h3 {
+         font-size: 14px;
+         text-transform: uppercase;
+         letter-spacing: 1.5px;
+         color: #6c7293;
+         margin-bottom: 20px;
+      }
+
+      /* Item da participação */
+      .item-participacao {
+         margin-bottom: 18px;
+      }
+
+      .label-categoria {
+         display: flex;
+         justify-content: space-between;
+         font-size: 13px;
+         margin-bottom: 6px;
+         color: #cfd3ff;
+      }
+
+      /* Barra */
+      .barra-container {
+         width: 100%;
+         height: 12px;
+         background: rgba(255,255,255,0.06);
+         border-radius: 8px;
+         overflow: hidden;
+      }
+
+      .barra {
+         height: 100%;
+         background: linear-gradient(90deg, #4facfe, #00f2fe);
+         border-radius: 8px;
+         transition: width 0.6s ease;
+         box-shadow: 0 0 10px rgba(79,172,254,0.6);
+      }
+
+
+      .card-analise-numerica {
+         background: linear-gradient(135deg, #1f2235, #181a2a);
+         padding: 35px;
+         border-radius: 18px;
+         margin-bottom: 40px;
+         box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+         border: 1px solid rgba(255,255,255,0.05);
+         font-family: 'Inter', sans-serif;
+         color: #ffffff;
+      }
+
+      .numerica-header {
+         margin-bottom: 30px;
+      }
+
+      .numerica-header .label-coluna {
+         font-size: 12px;
+         text-transform: uppercase;
+         letter-spacing: 1.5px;
+         color: #6c7293;
+      }
+
+      .numerica-header .nome-coluna {
+         font-size: 26px;
+         font-weight: 600;
+         margin-top: 6px;
+         letter-spacing: -0.5px;
+         color: #ffffff;
+      }
+
+      /* Destaque principal (Média) */
+      .destaque-media {
+         margin-top: 20px;
+         padding: 20px;
+         border-radius: 14px;
+         background: rgba(79,172,254,0.08);
+         border: 1px solid rgba(79,172,254,0.25);
+      }
+
+      .destaque-media .titulo {
+         font-size: 12px;
+         text-transform: uppercase;
+         letter-spacing: 1.2px;
+         color: #8f96b2;
+      }
+
+      .destaque-media .valor {
+         font-size: 28px;
+         font-weight: 700;
+         margin-top: 6px;
+         color: #4facfe;
+      }
+
+      /* Grid métricas principais */
+      .grid-metricas {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+         gap: 30px;
+         margin-top: 30px;
+      }
+
+      .metrica-box .numero {
+         font-size: 20px;
+         font-weight: 600;
+         color: #ffffff;
+         display: block;
+      }
+
+      .metrica-box .descricao {
+         font-size: 11px;
+         margin-top: 6px;
+         color: #8f96b2;
+         text-transform: uppercase;
+         letter-spacing: 1px;
+      }
+
+      /* Bloco estatístico */
+      .bloco-estatistico {
+         margin-top: 35px;
+         padding-top: 25px;
+         border-top: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .bloco-estatistico h3 {
+         font-size: 12px;
+         text-transform: uppercase;
+         letter-spacing: 1.5px;
+         color: #6c7293;
+         margin-bottom: 20px;
+      }
    </style>
 
 </head>
@@ -80,6 +266,1710 @@ Linhas</span>
 21</span>
 <span class="descricao">
 Colunas</span>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+student_id</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+2500,50</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+5000,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+4999,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1443,52</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2083750,00</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+12502500,00</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1250,25</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2500,50</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+3750,75</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2500,50</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+age</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+20,52</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+16,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+25,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+9,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,87</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+8,24</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+102602,00</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+18,00</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+20,00</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+23,00</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+5,00</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-string">
+<h2 class="titulo-coluna">
+Coluna: gender</h2>
+<div class="resumo-estatistico">
+<p>
+Valores únicos: 3</p>
+<p>
+Valores faltantes: 0</p>
+<p>
+Valor mais frequente: Male</p>
+</div>
+<div class="top-participacoes">
+<h3>
+Maiores Participações</h3>
+<div class="item-participacao">
+<span class="label-categoria">
+Male (1719 - 34.38%)</span>
+<div class="barra-container">
+<div style="width: 34.38%;" class="barra">
+</div>
+</div>
+</div>
+<div class="item-participacao">
+<span class="label-categoria">
+Other (1651 - 33.02%)</span>
+<div class="barra-container">
+<div style="width: 33.02%;" class="barra">
+</div>
+</div>
+</div>
+<div class="item-participacao">
+<span class="label-categoria">
+Female (1630 - 32.6%)</span>
+<div class="barra-container">
+<div style="width: 32.6%;" class="barra">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-string">
+<h2 class="titulo-coluna">
+Coluna: academic_level</h2>
+<div class="resumo-estatistico">
+<p>
+Valores únicos: 3</p>
+<p>
+Valores faltantes: 0</p>
+<p>
+Valor mais frequente: Postgraduate</p>
+</div>
+<div class="top-participacoes">
+<h3>
+Maiores Participações</h3>
+<div class="item-participacao">
+<span class="label-categoria">
+Postgraduate (1687 - 33.74%)</span>
+<div class="barra-container">
+<div style="width: 33.74%;" class="barra">
+</div>
+</div>
+</div>
+<div class="item-participacao">
+<span class="label-categoria">
+High School (1672 - 33.44%)</span>
+<div class="barra-container">
+<div style="width: 33.44%;" class="barra">
+</div>
+</div>
+</div>
+<div class="item-participacao">
+<span class="label-categoria">
+Undergraduate (1641 - 32.82%)</span>
+<div class="barra-container">
+<div style="width: 32.82%;" class="barra">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+study_hours</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+4,54</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+11,84</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+11,84</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,82</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+3,32</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+22697,97</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+3,25</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+4,53</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+5,76</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,51</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+self_study_hours</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+2,48</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+7,41</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+7,41</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,18</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,39</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+12393,67</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,66</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,48</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+3,29</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,63</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+online_classes_hours</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+2,01</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+6,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+6,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,98</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,97</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+10059,92</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,32</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,01</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,69</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,37</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+social_media_hours</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+3,00</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+8,28</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+8,28</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,47</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,15</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+14990,43</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,99</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,98</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+4,03</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,04</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+gaming_hours</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+1,56</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+5,64</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+5,64</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,11</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,23</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+7822,57</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,67</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,49</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,34</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,67</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+sleep_hours</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+7,02</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+4,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+10,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+6,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,16</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,35</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+35082,46</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+6,23</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+7,01</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+7,81</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,58</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+screen_time_hours</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+6,98</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+15,30</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+14,30</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,49</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+6,18</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+34897,94</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+5,28</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+6,95</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+8,71</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+3,43</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+exercise_minutes</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+74,54</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+149,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+149,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+42,93</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1843,18</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+372678,00</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+37,00</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+75,00</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+112,00</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+75,00</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+caffeine_intake_mg</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+251,45</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+499,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+499,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+143,84</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+20690,73</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1257252,00</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+129,00</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+252,00</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+376,00</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+247,00</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+part_time_job</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+0,50</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,50</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,25</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2491,00</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+upcoming_deadline</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+0,50</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,50</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,25</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2507,00</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-string">
+<h2 class="titulo-coluna">
+Coluna: internet_quality</h2>
+<div class="resumo-estatistico">
+<p>
+Valores únicos: 3</p>
+<p>
+Valores faltantes: 0</p>
+<p>
+Valor mais frequente: Good</p>
+</div>
+<div class="top-participacoes">
+<h3>
+Maiores Participações</h3>
+<div class="item-participacao">
+<span class="label-categoria">
+Good (1722 - 34.44%)</span>
+<div class="barra-container">
+<div style="width: 34.44%;" class="barra">
+</div>
+</div>
+</div>
+<div class="item-participacao">
+<span class="label-categoria">
+Poor (1640 - 32.8%)</span>
+<div class="barra-container">
+<div style="width: 32.8%;" class="barra">
+</div>
+</div>
+</div>
+<div class="item-participacao">
+<span class="label-categoria">
+Average (1638 - 32.76%)</span>
+<div class="barra-container">
+<div style="width: 32.76%;" class="barra">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+mental_health_score</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+5,51</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+10,00</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+9,00</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+2,87</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+8,23</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+27537,00</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+3,00</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+5,00</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+8,00</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+5,00</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+focus_index</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+29,43</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+63,48</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+62,48</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+9,96</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+99,26</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+147158,08</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+22,56</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+29,43</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+36,25</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+13,69</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+burnout_level</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+45,62</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+97,58</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+96,58</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+14,25</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+202,97</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+228076,62</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+35,72</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+45,69</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+55,36</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+19,64</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+productivity_score</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+37,27</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+98,02</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+97,02</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+16,85</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+283,90</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+186338,58</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+25,29</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+36,86</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+49,15</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+23,86</span>
+<span class="descricao">
+IQR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-analise-numerica">
+<div class="numerica-header">
+<span class="label-coluna">
+Análise Numérica</span>
+<div class="nome-coluna">
+exam_score</div>
+</div>
+<div class="destaque-media">
+<div class="titulo">
+Média</div>
+<div class="valor">
+18,80</div>
+</div>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+1,00</span>
+<span class="descricao">
+Mínimo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+64,09</span>
+<span class="descricao">
+Máximo</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+63,09</span>
+<span class="descricao">
+Amplitude</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+12,13</span>
+<span class="descricao">
+Desvio Padrão</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+147,16</span>
+<span class="descricao">
+Variância</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+94018,76</span>
+<span class="descricao">
+Soma</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+0,00</span>
+<span class="descricao">
+Faltantes</span>
+</div>
+</div>
+<div class="bloco-estatistico">
+<h3>
+Distribuição (Quartis)</h3>
+<div class="grid-metricas">
+<div class="metrica-box">
+<span class="numero">
+9,33</span>
+<span class="descricao">
+Q1</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+18,01</span>
+<span class="descricao">
+Mediana</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+27,40</span>
+<span class="descricao">
+Q3</span>
+</div>
+<div class="metrica-box">
+<span class="numero">
+18,07</span>
+<span class="descricao">
+IQR</span>
+</div>
 </div>
 </div>
 </div>

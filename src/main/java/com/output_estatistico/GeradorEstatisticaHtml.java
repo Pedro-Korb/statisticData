@@ -30,7 +30,7 @@ public class GeradorEstatisticaHtml {
    public String getHtmlEstatistica() {
       oDados = this.getDados();
       this.setCabecalho(this.getCabecalhoDados(oDados));
-      this.setConteudo(this.getConteudoDados());
+      // this.setConteudo(this.getConteudoDados());
       return GeradorHtml.gerarHtmlPagina(GeradorHtml.gerarHtml(this.getElementoGeral()), "pt-BR", "Dados Estatísticos", true);
    }
 

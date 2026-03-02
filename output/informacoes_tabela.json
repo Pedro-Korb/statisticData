@@ -1,1 +1,205 @@
-{"nomeTabela":"relatorio_pagamentos_2024.csv","numeroLinhas":26843,"numeroColunas":11,"nomeColunas":["Entidade","Credor","Tipo Pessoa","N° Ordem de Pagamento","Empenho","Vinculo","Data","Tipo Pagamento","Valor Pago","Ordem de Compra - Numero","Ordem de Compra - Ano"],"dadosColunas":[{"nomeColuna":"Entidade","tipoColuna":"STRING","quantidadeValoresFaltantes":0,"quantidadeValoresUnicos":7,"valorMaisFrequente":"MUNICIPIO DE RIO DO SUL - PREFEITURA","maioresParticipacoes":{"categoria_1":"MUNICIPIO DE RIO DO SUL - PREFEITURA","participacao_3":1423,"categoria_3":"FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL DE RIO DO SUL - FMAS","categoria_2":"FUNDO MUNICIPAL DE SAUDE DE RIO DO SUL","participacao_1":14786,"participacao_2":8194,"percentual_2":30.53,"percentual_3":5.3,"percentual_1":55.08}},{"nomeColuna":"Credor","tipoColuna":"STRING","quantidadeValoresFaltantes":0,"quantidadeValoresUnicos":1867,"valorMaisFrequente":"FUNCION/SERVID - PMRS","maioresParticipacoes":{"categoria_1":"FUNCION/SERVID - PMRS","participacao_3":755,"categoria_3":"PRESIDENTE INDUSTRIAL IMPORTADORA E COMERCIAL LTDA","categoria_2":"INSTITUTO NACIONAL DO SEGURO SOCIAL - INSS","participacao_1":5656,"participacao_2":1354,"percentual_2":5.04,"percentual_3":2.81,"percentual_1":21.07}},{"nomeColuna":"Tipo Pessoa","tipoColuna":"STRING","quantidadeValoresFaltantes":0,"quantidadeValoresUnicos":2,"valorMaisFrequente":"Juridica","maioresParticipacoes":{"categoria_1":"Juridica","categoria_2":"Fisica","participacao_1":23647,"participacao_2":3196,"percentual_2":11.91,"percentual_1":88.09}},{"nomeColuna":"N° Ordem de Pagamento","tipoColuna":"INTEGER","quantidadeValoresFaltantes":0,"media":6762.07,"minimo":1.0,"maximo":18681.0,"soma":1.81514132E8,"desvioPadrao":5337.74,"variancia":2.849151509E7,"amplitude":18680.0,"quartil_1":1741.0,"quartil_2_mediana":6009.0,"quartil_3":10429.0,"intervalo_interquartil":8688.0},{"nomeColuna":"Empenho","tipoColuna":"STRING","quantidadeValoresFaltantes":0,"quantidadeValoresUnicos":16698,"valorMaisFrequente":"134-0/2024","maioresParticipacoes":{"categoria_1":"134-0/2024","participacao_3":41,"categoria_3":"89-0/2024","categoria_2":"26/2024","participacao_1":83,"participacao_2":48,"percentual_2":0.18,"percentual_3":0.15,"percentual_1":0.31}},{"nomeColuna":"Vinculo","tipoColuna":"LONG","quantidadeValoresFaltantes":0,"media":1.6762555931518E11,"minimo":1.5001001E11,"maximo":2.89970000015E11,"soma":4.499572888697284E15,"desvioPadrao":3.560101085725E10,"variancia":9.223372036854776E16,"amplitude":1.39959990015E11,"quartil_1":1.5007E11,"quartil_2_mediana":1.5007E11,"quartil_3":1.60470000002E11,"intervalo_interquartil":1.0400000002E10},{"nomeColuna":"Data","tipoColuna":"STRING","quantidadeValoresFaltantes":0,"quantidadeValoresUnicos":253,"valorMaisFrequente":"31/10/2024","maioresParticipacoes":{"categoria_1":"31/10/2024","participacao_3":316,"categoria_3":"02/09/2024","categoria_2":"04/03/2024","participacao_1":399,"participacao_2":347,"percentual_2":1.29,"percentual_3":1.18,"percentual_1":1.49}},{"nomeColuna":"Tipo Pagamento","tipoColuna":"STRING","quantidadeValoresFaltantes":334,"quantidadeValoresUnicos":12,"valorMaisFrequente":"Debitos Bancarios","maioresParticipacoes":{"categoria_1":"Debitos Bancarios","participacao_3":1216,"categoria_3":"Aviso de debito","categoria_2":"Bordero","participacao_1":16279,"participacao_2":6089,"percentual_2":22.68,"percentual_3":4.53,"percentual_1":60.65}},{"nomeColuna":"Valor Pago","tipoColuna":"DOUBLE","quantidadeValoresFaltantes":0,"media":17416.32,"minimo":0.0,"maximo":3728728.42,"soma":4.6750622505E8,"desvioPadrao":95558.43,"variancia":9.13141341185E9,"amplitude":3728728.42,"quartil_1":193.88,"quartil_2_mediana":968.0,"quartil_3":4725.9,"intervalo_interquartil":4532.02},{"nomeColuna":"Ordem de Compra - Numero","tipoColuna":"INTEGER","quantidadeValoresFaltantes":13320,"media":2176.3,"minimo":1.0,"maximo":6334.0,"soma":2.9430041E7,"desvioPadrao":1761.07,"variancia":3101375.76,"amplitude":6333.0,"quartil_1":593.0,"quartil_2_mediana":1881.0,"quartil_3":3408.0,"intervalo_interquartil":2815.0},{"nomeColuna":"Ordem de Compra - Ano","tipoColuna":"INTEGER","quantidadeValoresFaltantes":13320,"media":2023.99,"minimo":2023.0,"maximo":2024.0,"soma":2.7370379E7,"desvioPadrao":0.11,"variancia":0.01,"amplitude":1.0,"quartil_1":2024.0,"quartil_2_mediana":2024.0,"quartil_3":2024.0,"intervalo_interquartil":0.0}]}
+{
+    "nomeTabela": "relatorio_pagamentos_2024.csv",
+    "numeroLinhas": 26843,
+    "numeroColunas": 11,
+    "nomeColunas": [
+        "Entidade",
+        "Credor",
+        "Tipo Pessoa",
+        "N° Ordem de Pagamento",
+        "Empenho",
+        "Vinculo",
+        "Data",
+        "Tipo Pagamento",
+        "Valor Pago",
+        "Ordem de Compra - Numero",
+        "Ordem de Compra - Ano"
+    ],
+    "dadosColunas": [
+        {
+            "nomeColuna": "Entidade",
+            "tipoColuna": "STRING",
+            "quantidadeValoresFaltantes": 0,
+            "quantidadeValoresUnicos": 7,
+            "valorMaisFrequente": "MUNICIPIO DE RIO DO SUL - PREFEITURA",
+            "maioresParticipacoes": {
+                "categoria_1": "MUNICIPIO DE RIO DO SUL - PREFEITURA",
+                "participacao_3": 1423,
+                "categoria_3": "FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL DE RIO DO SUL - FMAS",
+                "categoria_2": "FUNDO MUNICIPAL DE SAUDE DE RIO DO SUL",
+                "participacao_1": 14786,
+                "participacao_2": 8194,
+                "percentual_2": 30.53,
+                "percentual_3": 5.3,
+                "percentual_1": 55.08
+            }
+        },
+        {
+            "nomeColuna": "Credor",
+            "tipoColuna": "STRING",
+            "quantidadeValoresFaltantes": 0,
+            "quantidadeValoresUnicos": 1867,
+            "valorMaisFrequente": "FUNCION/SERVID - PMRS",
+            "maioresParticipacoes": {
+                "categoria_1": "FUNCION/SERVID - PMRS",
+                "participacao_3": 755,
+                "categoria_3": "PRESIDENTE INDUSTRIAL IMPORTADORA E COMERCIAL LTDA",
+                "categoria_2": "INSTITUTO NACIONAL DO SEGURO SOCIAL - INSS",
+                "participacao_1": 5656,
+                "participacao_2": 1354,
+                "percentual_2": 5.04,
+                "percentual_3": 2.81,
+                "percentual_1": 21.07
+            }
+        },
+        {
+            "nomeColuna": "Tipo Pessoa",
+            "tipoColuna": "STRING",
+            "quantidadeValoresFaltantes": 0,
+            "quantidadeValoresUnicos": 2,
+            "valorMaisFrequente": "Juridica",
+            "maioresParticipacoes": {
+                "categoria_1": "Juridica",
+                "categoria_2": "Fisica",
+                "participacao_1": 23647,
+                "participacao_2": 3196,
+                "percentual_2": 11.91,
+                "percentual_1": 88.09
+            }
+        },
+        {
+            "nomeColuna": "N° Ordem de Pagamento",
+            "tipoColuna": "INTEGER",
+            "quantidadeValoresFaltantes": 0,
+            "media": 6762.07,
+            "minimo": 1.0,
+            "maximo": 18681.0,
+            "soma": 1.81514132E8,
+            "desvioPadrao": 5337.74,
+            "variancia": 2.849151509E7,
+            "amplitude": 18680.0,
+            "quartil_1": 1741.0,
+            "quartil_2_mediana": 6009.0,
+            "quartil_3": 10429.0,
+            "intervalo_interquartil": 8688.0
+        },
+        {
+            "nomeColuna": "Empenho",
+            "tipoColuna": "STRING",
+            "quantidadeValoresFaltantes": 0,
+            "quantidadeValoresUnicos": 16698,
+            "valorMaisFrequente": "134-0/2024",
+            "maioresParticipacoes": {
+                "categoria_1": "134-0/2024",
+                "participacao_3": 41,
+                "categoria_3": "89-0/2024",
+                "categoria_2": "26/2024",
+                "participacao_1": 83,
+                "participacao_2": 48,
+                "percentual_2": 0.18,
+                "percentual_3": 0.15,
+                "percentual_1": 0.31
+            }
+        },
+        {
+            "nomeColuna": "Vinculo",
+            "tipoColuna": "LONG",
+            "quantidadeValoresFaltantes": 0,
+            "media": 1.6762555931518E11,
+            "minimo": 1.5001001E11,
+            "maximo": 2.89970000015E11,
+            "soma": 4.499572888697284E15,
+            "desvioPadrao": 3.560101085725E10,
+            "variancia": 9.223372036854776E16,
+            "amplitude": 1.39959990015E11,
+            "quartil_1": 1.5007E11,
+            "quartil_2_mediana": 1.5007E11,
+            "quartil_3": 1.60470000002E11,
+            "intervalo_interquartil": 1.0400000002E10
+        },
+        {
+            "nomeColuna": "Data",
+            "tipoColuna": "STRING",
+            "quantidadeValoresFaltantes": 0,
+            "quantidadeValoresUnicos": 253,
+            "valorMaisFrequente": "31/10/2024",
+            "maioresParticipacoes": {
+                "categoria_1": "31/10/2024",
+                "participacao_3": 316,
+                "categoria_3": "02/09/2024",
+                "categoria_2": "04/03/2024",
+                "participacao_1": 399,
+                "participacao_2": 347,
+                "percentual_2": 1.29,
+                "percentual_3": 1.18,
+                "percentual_1": 1.49
+            }
+        },
+        {
+            "nomeColuna": "Tipo Pagamento",
+            "tipoColuna": "STRING",
+            "quantidadeValoresFaltantes": 334,
+            "quantidadeValoresUnicos": 12,
+            "valorMaisFrequente": "Debitos Bancarios",
+            "maioresParticipacoes": {
+                "categoria_1": "Debitos Bancarios",
+                "participacao_3": 1216,
+                "categoria_3": "Aviso de debito",
+                "categoria_2": "Bordero",
+                "participacao_1": 16279,
+                "participacao_2": 6089,
+                "percentual_2": 22.68,
+                "percentual_3": 4.53,
+                "percentual_1": 60.65
+            }
+        },
+        {
+            "nomeColuna": "Valor Pago",
+            "tipoColuna": "DOUBLE",
+            "quantidadeValoresFaltantes": 0,
+            "media": 17416.32,
+            "minimo": 0.0,
+            "maximo": 3728728.42,
+            "soma": 4.6750622505E8,
+            "desvioPadrao": 95558.43,
+            "variancia": 9.13141341185E9,
+            "amplitude": 3728728.42,
+            "quartil_1": 193.88,
+            "quartil_2_mediana": 968.0,
+            "quartil_3": 4725.9,
+            "intervalo_interquartil": 4532.02
+        },
+        {
+            "nomeColuna": "Ordem de Compra - Numero",
+            "tipoColuna": "INTEGER",
+            "quantidadeValoresFaltantes": 13320,
+            "media": 2176.3,
+            "minimo": 1.0,
+            "maximo": 6334.0,
+            "soma": 2.9430041E7,
+            "desvioPadrao": 1761.07,
+            "variancia": 3101375.76,
+            "amplitude": 6333.0,
+            "quartil_1": 593.0,
+            "quartil_2_mediana": 1881.0,
+            "quartil_3": 3408.0,
+            "intervalo_interquartil": 2815.0
+        },
+        {
+            "nomeColuna": "Ordem de Compra - Ano",
+            "tipoColuna": "INTEGER",
+            "quantidadeValoresFaltantes": 13320,
+            "media": 2023.99,
+            "minimo": 2023.0,
+            "maximo": 2024.0,
+            "soma": 2.7370379E7,
+            "desvioPadrao": 0.11,
+            "variancia": 0.01,
+            "amplitude": 1.0,
+            "quartil_1": 2024.0,
+            "quartil_2_mediana": 2024.0,
+            "quartil_3": 2024.0,
+            "intervalo_interquartil": 0.0
+        }
+    ]
+}

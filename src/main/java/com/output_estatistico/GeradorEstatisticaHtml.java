@@ -7,6 +7,7 @@ import com.estrutura.ElementoHtml;
 import com.estrutura.GeradorHtml;
 
 import java.util.List;
+import java.util.Locale;
 
 public class GeradorEstatisticaHtml {
 
@@ -28,8 +29,7 @@ public class GeradorEstatisticaHtml {
       oDados = this.getDados();
       this.setCabecalho(this.getCabecalhoDados(oDados));
       this.setConteudoBody((ArrayList<Map<String, Object>>)this.getDados().get("dadosColunas"));
-      return GeradorHtml.gerarHtmlPagina(GeradorHtml.gerarHtml(this.getElementoGeral()), "pt-BR", "Dados Estatísticos",
-            true);
+      return GeradorHtml.gerarHtmlPagina(GeradorHtml.gerarHtml(this.getElementoGeral()), "pt-BR", "Dados Estatísticos", true);
    }
 
    public CabecalhoDados getCabecalhoDados(Map<String, Object> oDados) {
@@ -129,7 +129,7 @@ public class GeradorEstatisticaHtml {
          if (sTipoColuna == "STRING") {
             this.setDadosColunaString(oColuna);
          } else if (List.of("INTEGER", "LONG", "NUMERIC", "DOUBLE", "SHORT", "FLOAT").contains(sTipoColuna)) {
-            this.setDadosColunaNumerica(oColuna);
+            this.setDadosColunaNumerica(oColuna, sTipoColuna == "LONG");
          }
       }
    }
@@ -156,7 +156,7 @@ public class GeradorEstatisticaHtml {
       ElementoHtml tituloColuna = new ElementoHtml()
             .setTag("h2")
             .addAtributo("class", "titulo-coluna")
-            .setConteudoTextual("Coluna: " + nomeColuna);
+            .setConteudoTextual(nomeColuna);
 
       cardColuna.addConteudo(tituloColuna);
 
@@ -188,7 +188,7 @@ public class GeradorEstatisticaHtml {
 
       secaoTop.addConteudo(tituloTop);
 
-      for (int i = 1; i <= 3; i++) {
+      for (int i = 1; i <= maioresParticipacoes.size() / 3; i++) {
          String categoria = (String)maioresParticipacoes.get("categoria_" + i);
          int participacao = 0;
          if(maioresParticipacoes.get("participacao_" + i) != null) {
@@ -227,7 +227,7 @@ public class GeradorEstatisticaHtml {
       oElementoGeral.addConteudo(cardColuna);
    }
 
-   private void setDadosColunaNumerica(Map<String, Object> oColuna) {
+   private void setDadosColunaNumerica(Map<String, Object> oColuna, Boolean bLong) {
       String nomeColuna = oColuna.get("nomeColuna").toString();
       int faltantes = Integer.parseInt(oColuna.get("quantidadeValoresFaltantes").toString());
 
@@ -245,7 +245,7 @@ public class GeradorEstatisticaHtml {
 
       ElementoHtml card = new ElementoHtml()
                .setTag("div")
-               .addAtributo("class", "card-analise-numerica");
+               .addAtributo("class", bLong ? "card-analise-numerica long-numero" : "card-analise-numerica");
 
       ElementoHtml header = new ElementoHtml()
                .setTag("div")
@@ -264,7 +264,7 @@ public class GeradorEstatisticaHtml {
       card.addConteudo(header);
       ElementoHtml destaqueMedia = new ElementoHtml()
                .setTag("div")
-               .addAtributo("class", "destaque-media");
+               .addAtributo("class", bLong ? "destaque-media long-destaque" : "destaque-media");
 
       destaqueMedia
          .addConteudo(new ElementoHtml()
@@ -282,13 +282,13 @@ public class GeradorEstatisticaHtml {
                .addAtributo("class", "grid-metricas");
 
       grid
-         .addConteudo(criarMetricaBox("Mínimo", minimo))
-         .addConteudo(criarMetricaBox("Máximo", maximo))
-         .addConteudo(criarMetricaBox("Amplitude", amplitude))
-         .addConteudo(criarMetricaBox("Desvio Padrão", desvioPadrao))
-         .addConteudo(criarMetricaBox("Variância", variancia))
-         .addConteudo(criarMetricaBox("Soma", soma))
-         .addConteudo(criarMetricaBox("Faltantes", faltantes));
+         .addConteudo(criarMetricaBox("Mínimo", minimo, bLong))
+         .addConteudo(criarMetricaBox("Máximo", maximo, bLong))
+         .addConteudo(criarMetricaBox("Amplitude", amplitude, bLong))
+         .addConteudo(criarMetricaBox("Desvio Padrão", desvioPadrao, bLong))
+         .addConteudo(criarMetricaBox("Variância", variancia, bLong))
+         .addConteudo(criarMetricaBox("Soma", soma, bLong))
+         .addConteudo(criarMetricaBox("Faltantes", faltantes, bLong));
 
       card.addConteudo(grid);
       ElementoHtml blocoEstatistico = new ElementoHtml()
@@ -305,10 +305,10 @@ public class GeradorEstatisticaHtml {
                .addAtributo("class", "grid-metricas");
 
       gridQuartis
-         .addConteudo(criarMetricaBox("Q1", q1))
-         .addConteudo(criarMetricaBox("Mediana", mediana))
-         .addConteudo(criarMetricaBox("Q3", q3))
-         .addConteudo(criarMetricaBox("IQR", iqr));
+         .addConteudo(criarMetricaBox("Q1", q1, bLong))
+         .addConteudo(criarMetricaBox("Mediana", mediana, bLong))
+         .addConteudo(criarMetricaBox("Q3", q3, bLong))
+         .addConteudo(criarMetricaBox("IQR", iqr, bLong));
 
       blocoEstatistico.addConteudo(gridQuartis);
 
@@ -317,7 +317,7 @@ public class GeradorEstatisticaHtml {
          this.oElementoGeral.addConteudo(card);
    }
 
-   private static ElementoHtml criarMetricaBox(String descricao, double valor) {
+   private static ElementoHtml criarMetricaBox(String descricao, double valor, Boolean bLong) {
       ElementoHtml box = new ElementoHtml()
                .setTag("div")
                .addAtributo("class", "metrica-box");
@@ -325,7 +325,7 @@ public class GeradorEstatisticaHtml {
       box
          .addConteudo(new ElementoHtml()
                .setTag("span")
-               .addAtributo("class", "numero")
+               .addAtributo("class", bLong ? "numero long-metrica" : "numero")
                .setConteudoTextual(String.format("%.2f", valor)))
          .addConteudo(new ElementoHtml()
                .setTag("span")

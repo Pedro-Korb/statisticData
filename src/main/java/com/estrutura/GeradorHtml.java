@@ -288,10 +288,9 @@ public class GeradorHtml {
 
             .numerica-header .nome-coluna {
                font-size: 26px;
-               font-weight: 600;
                margin-top: 6px;
                letter-spacing: -0.5px;
-               color: #ffffff;
+               color: #5ab4d7;
             }
 
             /* Destaque principal (Média) */
@@ -307,7 +306,7 @@ public class GeradorHtml {
                font-size: 12px;
                text-transform: uppercase;
                letter-spacing: 1.2px;
-               color: #8f96b2;
+               color: #5ab4d7;
             }
 
             .destaque-media .valor {
@@ -353,6 +352,28 @@ public class GeradorHtml {
                letter-spacing: 1.5px;
                color: #6c7293;
                margin-bottom: 20px;
+            }
+            /* ===== LONG FIX ===== */
+
+            .long-numero {
+               overflow: hidden;
+            }
+
+            .long-destaque .valor,
+            .long-metrica {
+               word-break: break-all;
+               overflow-wrap: anywhere;
+               white-space: normal;
+               font-family: 'Inter', sans-serif;
+            }
+
+            .long-destaque .valor {
+               font-size: 22px;
+               line-height: 1.25;
+            }
+
+            .long-metrica {
+               font-size: 18px;
             }
          </style>
       """;

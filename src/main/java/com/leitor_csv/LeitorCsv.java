@@ -29,6 +29,7 @@ public class LeitorCsv {
       }
       CsvReadOptions oOptions = CsvReadOptions.builder(sPath)
             .separator(sSeparador)
+            .maxCharsPerColumn(100000) 
             .build();
 
       return Table.read().usingOptions(oOptions);

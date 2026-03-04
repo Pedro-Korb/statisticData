@@ -1,24 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="454.0" prefWidth="372.0" spacing="10" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.MainController">
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Analisador de CSV" textAlignment="CENTER">
-      <font>
-         <Font size="16.0" />
-      </font>
-   </Text>
-   <Label text="Selecionar CSV">
-      <graphic>
-         <Button id="btnSelecionarCsv" mnemonicParsing="false" onAction="#onSelecionarCsv" text="Anexe seu arquivo AQUI" />
-      </graphic>
-   </Label>
-    <Button text="Gerar HTML" />
-    <Button prefHeight="25.0" prefWidth="80.0" text="Gerar JSON" />
-    <Button prefHeight="25.0" prefWidth="80.0" text="Gerar XML" />
+<VBox prefHeight="600" prefWidth="900" spacing="10" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.MainController">
+
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #2E7D32; -fx-padding: 12;">
+        <Text fill="WHITE" text="Analisador Estatístico de CSV">
+            <font>
+                <Font size="20" />
+            </font>
+        </Text>
+    </HBox>
+
+    <TabPane VBox.vgrow="ALWAYS">
+
+        <Tab closable="false" text="Upload e Ações">
+            <VBox alignment="TOP_CENTER" spacing="20">
+                <padding>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </padding>
+
+                <Label text="Anexe seu arquivo CSV">
+                    <font>
+                        <Font size="16" />
+                    </font>
+                </Label>
+
+                <StackPane fx:id="dropArea" prefHeight="180" prefWidth="420" style="-fx-border-color: #9E9E9E;                                   -fx-border-radius: 12;                                   -fx-border-style: dashed;                                   -fx-background-radius: 12;                                   -fx-background-color: #FAFAFA;">
+
+                    <VBox alignment="CENTER" onMouseClicked="#onSelecionarCsv" spacing="8">
+                        <Label text="📁 Arraste o arquivo CSV aqui" />
+                        <Label style="-fx-text-fill: #666666;" text="ou clique para selecionar" />
+                    </VBox>
+                </StackPane>
+
+                <Label fx:id="lblArquivo" style="-fx-text-fill: #666666;" text="Nenhum arquivo selecionado" />
+
+                <HBox alignment="CENTER" spacing="12">
+                    <Button fx:id="btnGerarJson" prefWidth="120" onAction="#onGerarJson" text="Gerar JSON" />
+                    <Button fx:id="btnGerarHtml" text="Gerar HTML" prefWidth="120" onAction="#onGerarHtml" />
+                    <Button fx:id="btnGerarXml" prefWidth="120" text="Gerar XML" />
+                </HBox>
+
+                <Button fx:id="btnExportar" prefWidth="200" style="-fx-background-color: #2E7D32;                                -fx-text-fill: white;                                -fx-font-weight: bold;" text="Exportar Arquivo" />
+
+            </VBox>
+        </Tab>
+
+        <Tab closable="false" text="Pré-visualização">
+            <VBox spacing="10">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+
+                <Label text="Prévia do conteúdo gerado">
+                    <font>
+                        <Font size="16" />
+                    </font>
+                </Label>
+
+                <TextArea fx:id="txtPreview" style="-fx-font-family: 'Consolas', 'Monospaced';" wrapText="false" VBox.vgrow="ALWAYS" />
+
+            </VBox>
+        </Tab>
+    </TabPane>
 
 </VBox>

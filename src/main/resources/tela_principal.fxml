@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -44,15 +45,33 @@
                     </VBox>
                 </StackPane>
 
-                <Label fx:id="lblArquivo" style="-fx-text-fill: #666666;" text="Nenhum arquivo selecionado" />
+                <Label fx:id="lblArquivo" alignment="CENTER" prefHeight="46.0" prefWidth="251.0" style="-fx-text-fill: #666666;" text="Nenhum arquivo selecionado">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
+            <HBox alignment="TOP_CENTER" prefHeight="43.0" prefWidth="782.0">
+               <children>
+                  <Label prefHeight="19.0" prefWidth="65.0" text="Separador">
+                     <HBox.margin>
+                        <Insets top="13.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboOpcoes" onAction="#onChangeSeparador" prefWidth="150.0" promptText="Selecione">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+            </HBox>
 
                 <HBox alignment="CENTER" spacing="12">
-                    <Button fx:id="btnGerarJson" prefWidth="120" onAction="#onGerarJson" text="Gerar JSON" />
-                    <Button fx:id="btnGerarHtml" text="Gerar HTML" prefWidth="120" onAction="#onGerarHtml" />
-                    <Button fx:id="btnGerarXml" prefWidth="120" text="Gerar XML" />
+                    <Button fx:id="btnGerarJson" onAction="#onGerarJson" prefWidth="120" text="Gerar JSON" />
+                    <Button fx:id="btnGerarHtml" onAction="#onGerarHtml" prefWidth="120" text="Gerar HTML" />
+                    <Button fx:id="btnGerarXml" onAction="#onGerarXml" prefWidth="120" text="Gerar XML" />
                 </HBox>
-
-                <Button fx:id="btnExportar" prefWidth="200" style="-fx-background-color: #2E7D32;                                -fx-text-fill: white;                                -fx-font-weight: bold;" text="Exportar Arquivo" />
 
             </VBox>
         </Tab>
@@ -71,6 +90,14 @@
 
                 <TextArea fx:id="txtPreview" style="-fx-font-family: 'Consolas', 'Monospaced';" wrapText="false" VBox.vgrow="ALWAYS" />
 
+                <HBox prefHeight="36.0" prefWidth="880.0" spacing="20">
+                    <children>
+                        <Button fx:id="btnExportar" onAction="#onExportarArquivo" prefWidth="200" style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-font-weight: bold;" text="Exportar Arquivo" />
+
+                        <Button fx:id="btnVisualizarHtml" onAction="#onVisualizarHtml" prefWidth="200" style="-fx-background-color: #495c50; -fx-text-fill: white; -fx-font-weight: bold;" text="Visualizar HTML" />
+
+                    </children>
+                </HBox>
             </VBox>
         </Tab>
     </TabPane>

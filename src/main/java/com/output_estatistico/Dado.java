@@ -41,5 +41,4 @@ public class Dado {
       this.xInformacao = xInformacao;
       return this;
    }
-   
 }

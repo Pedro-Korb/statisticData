@@ -7,18 +7,18 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(
-                MainApp.class.getResource("/tela_principal.fxml"));
+   @Override
+   public void start(Stage oStage) throws Exception {
+      FXMLLoader oFxmlLoader = new FXMLLoader(
+         MainApp.class.getResource("/tela_principal.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Analisador CSV");
-        stage.setScene(scene);
-        stage.show();
-    }
+      Scene oScene = new Scene(oFxmlLoader.load());
+      oStage.setTitle("Analisador CSV");
+      oStage.setScene(oScene);
+      oStage.show();
+   }
 
-    public static void main(String[] args) {
-        launch();
-    }
+   public static void main(String[] args) {
+      launch();
+   }
 }

@@ -9,17 +9,15 @@ import java.util.Iterator;
 
 public class GeradorHtml {
 
-   static List<String> aTagsSimples = List.of("br", "hr", "img", "input", "meta", "link", "area", "base", "col",
-         "embed", "source", "track", "wbr");
+   private static List<String> aTagsSimples = List.of("br", "hr", "img", "input", "meta", "link", "area", "base", "col", "embed", "source", "track", "wbr");
 
-   public static String gerarHtmlPagina(String sConteudo, String sLanguage, String sTituloPagina,
-         Boolean bUsaEstiloPadrao) {
-
+   public static String gerarHtmlPagina(String sConteudo, String sLanguage, String sTituloPagina, Boolean bUsaEstiloPadrao) {
       String sEstilo = "";
 
       if (bUsaEstiloPadrao) {
          sEstilo = getStyle();
       }
+
       return """
             <!DOCTYPE html>
             <html lang="%s">
@@ -63,8 +61,8 @@ public class GeradorHtml {
       try (BufferedWriter writer = new BufferedWriter(new FileWriter(sPathArquivoHtml))) {
          writer.write(sHtml);
 
-      } catch (IOException e) {
-         e.printStackTrace();
+      } catch (IOException oIOException) {
+         oIOException.printStackTrace();
       }
    }
 
@@ -83,22 +81,22 @@ public class GeradorHtml {
    private static String geAtributoStyle(Map<String, String> oMapStyle) {
       String sHtmlStyle = "";
 
-      StringBuilder sbStyle = new StringBuilder();
+      StringBuilder oSbStyle = new StringBuilder();
       Iterator<Map.Entry<String, String>> aStyle = oMapStyle.entrySet().iterator();
       while (aStyle.hasNext()) {
          Map.Entry<String, String> oStyle = aStyle.next();
-         sbStyle.append(oStyle.getKey())
-               .append(": ")
-               .append(oStyle.getValue())
-               .append(";");
+         oSbStyle.append(oStyle.getKey())
+            .append(": ")
+            .append(oStyle.getValue())
+            .append(";");
 
          if (aStyle.hasNext()) {
-            sbStyle.append(" ");
+            oSbStyle.append(" ");
          }
       }
 
-      if (sbStyle.length() > 0) {
-         sHtmlStyle = " style=\"" + sbStyle.toString() + "\"";
+      if (oSbStyle.length() > 0) {
+         sHtmlStyle = " style=\"" + oSbStyle.toString() + "\"";
       }
 
       return sHtmlStyle;
@@ -378,5 +376,4 @@ public class GeradorHtml {
          </style>
       """;
    }
-
 }

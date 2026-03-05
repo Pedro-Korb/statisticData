@@ -55,111 +55,111 @@ public class MainController {
    @FXML
    private Button btnVisualizarHtml;
 
-   private char separador;
+   private char cSeparador;
 
-   private String tipoExportacao;
+   private String sTipoExportacao;
 
-   private File arquivoSelecionado;
+   private File oArquivoSelecionado;
 
-   private String ultimoJsonGerado;
+   private String sUltimoJsonGerado;
 
-   private String ultimoXmlGerado;
+   private String sUltimoXmlGerado;
 
    @FXML
    public void initialize() {
       configurarDragAndDrop();
       this.comboOpcoes.getItems().addAll(
-            "Ponto e vírgula",
-            "Vírgula",
-            "Pipeline");
+         "Ponto e vírgula",
+         "Vírgula",
+         "Pipeline");
       this.comboOpcoes.setValue("Ponto e vírgula");
-      this.separador = ';';
+      this.cSeparador = ';';
    }
 
    @FXML
    private void onSelecionarCsv() {
-      FileChooser fileChooser = new FileChooser();
-      fileChooser.setTitle("Selecionar arquivo CSV");
+      FileChooser oFileChooser = new FileChooser();
+      oFileChooser.setTitle("Selecionar arquivo CSV");
 
-      fileChooser.getExtensionFilters().add(
+      oFileChooser.getExtensionFilters().add(
             new FileChooser.ExtensionFilter("Arquivos CSV", "*.csv"));
 
-      Stage stage = (Stage) dropArea.getScene().getWindow();
-      File file = fileChooser.showOpenDialog(stage);
+      Stage oStage = (Stage) dropArea.getScene().getWindow();
+      File oFile = oFileChooser.showOpenDialog(oStage);
 
-      if (file != null) {
-         processarArquivo(file);
+      if (oFile != null) {
+         processarArquivo(oFile);
       }
    }
 
    @FXML
    private void onGerarXml(ActionEvent event) {
-      if (this.arquivoSelecionado == null) {
+      if (this.oArquivoSelecionado == null) {
          mostrarAlerta("Selecione um arquivo CSV primeiro.");
          return;
       }
 
       try {
-         XmlMapper xmlMapper = new XmlMapper();
-         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+         XmlMapper oXmlMapper = new XmlMapper();
+         oXmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+         
+         sUltimoXmlGerado = oXmlMapper.writeValueAsString(
+            LeitorCsv.getDadosEstatisticos(
+               LeitorCsv.getTabela(
+                  oArquivoSelecionado.getAbsolutePath(),
+                  this.cSeparador)));
 
-         ultimoXmlGerado = xmlMapper.writeValueAsString(
-               LeitorCsv.getDadosEstatisticos(
-                     LeitorCsv.getTabela(
-                           arquivoSelecionado.getAbsolutePath(),
-                           this.separador)));
+         txtPreview.setText(sUltimoXmlGerado);
+         this.sTipoExportacao = "xml";
 
-         txtPreview.setText(ultimoXmlGerado);
-         this.tipoExportacao = "xml";
-
-      } catch (Exception e) {
-         e.printStackTrace();
+      } catch (Exception oException) {
+         oException.printStackTrace();
          mostrarAlerta("Erro ao gerar XML.");
       }
    }
 
    @FXML
    private void onGerarHtml() {
-      if (this.arquivoSelecionado == null) {
+      if (this.oArquivoSelecionado == null) {
          mostrarAlerta("Selecione um arquivo CSV primeiro.");
          return;
       }
 
       try {
-         GeradorEstatisticaHtml gerador = new GeradorEstatisticaHtml(
-               LeitorCsv.getDadosEstatisticos(
-                     LeitorCsv.getTabela(
-                           arquivoSelecionado.getAbsolutePath(),
-                           this.separador)));
+         GeradorEstatisticaHtml oGerador = new GeradorEstatisticaHtml(
+            LeitorCsv.getDadosEstatisticos(
+               LeitorCsv.getTabela(
+                  oArquivoSelecionado.getAbsolutePath(),
+                  this.cSeparador)));
 
-         txtPreview.setText(gerador.getHtmlEstatistica());
-         this.tipoExportacao = "html";
-      } catch (Exception e) {
-         e.printStackTrace();
-         lblStatusPreview.setText("Erro ao gerar HTML: " + e.getMessage());
+         txtPreview.setText(oGerador.getHtmlEstatistica());
+         this.sTipoExportacao = "html";
+      } catch (Exception oException) {
+         oException.printStackTrace();
+         lblStatusPreview.setText("Erro ao gerar HTML: " + oException.getMessage());
       }
    }
 
    @FXML
    private void onGerarJson(ActionEvent event) {
-      if (this.arquivoSelecionado == null) {
+      if (this.oArquivoSelecionado == null) {
          mostrarAlerta("Selecione um arquivo CSV primeiro.");
          return;
       }
 
       try {
-         ObjectMapper mapper = new ObjectMapper();
-         mapper.enable(SerializationFeature.INDENT_OUTPUT);
+         ObjectMapper oMapper = new ObjectMapper();
+         oMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-         ultimoJsonGerado = mapper.writeValueAsString(
-               LeitorCsv.getDadosEstatisticos(
-                     LeitorCsv.getTabela(arquivoSelecionado.getAbsolutePath(), this.separador)));
+         sUltimoJsonGerado = oMapper.writeValueAsString(
+            LeitorCsv.getDadosEstatisticos(
+               LeitorCsv.getTabela(oArquivoSelecionado.getAbsolutePath(), this.cSeparador)));
 
-         txtPreview.setText(ultimoJsonGerado);
-         this.tipoExportacao = "json";
+         txtPreview.setText(sUltimoJsonGerado);
+         this.sTipoExportacao = "json";
 
-      } catch (Exception e) {
-         e.printStackTrace();
+      } catch (Exception oException) {
+         oException.printStackTrace();
          mostrarAlerta("Erro ao gerar JSON.");
       }
    }
@@ -171,29 +171,27 @@ public class MainController {
          return;
       }
 
-      FileChooser fileChooser = new FileChooser();
-      fileChooser.setTitle("Salvar Arquivo");
+      FileChooser oFileChooser = new FileChooser();
+      oFileChooser.setTitle("Salvar Arquivo");
+      FileChooser.ExtensionFilter oExtFilter;
 
-      FileChooser.ExtensionFilter extFilter;
-
-      switch (this.tipoExportacao) {
-
+      switch (this.sTipoExportacao) {
          case "json":
-            extFilter = new FileChooser.ExtensionFilter("Arquivo JSON (*.json)", "*.json");
-            fileChooser.getExtensionFilters().add(extFilter);
-            fileChooser.setInitialFileName("analise_estatistica.json");
+            oExtFilter = new FileChooser.ExtensionFilter("Arquivo JSON (*.json)", "*.json");
+            oFileChooser.getExtensionFilters().add(oExtFilter);
+            oFileChooser.setInitialFileName("analise_estatistica.json");
             break;
 
          case "xml":
-            extFilter = new FileChooser.ExtensionFilter("Arquivo XML (*.xml)", "*.xml");
-            fileChooser.getExtensionFilters().add(extFilter);
-            fileChooser.setInitialFileName("analise_estatistica.xml");
+            oExtFilter = new FileChooser.ExtensionFilter("Arquivo XML (*.xml)", "*.xml");
+            oFileChooser.getExtensionFilters().add(oExtFilter);
+            oFileChooser.setInitialFileName("analise_estatistica.xml");
             break;
 
          case "html":
-            extFilter = new FileChooser.ExtensionFilter("Arquivo HTML (*.html)", "*.html");
-            fileChooser.getExtensionFilters().add(extFilter);
-            fileChooser.setInitialFileName("analise_estatistica.html");
+            oExtFilter = new FileChooser.ExtensionFilter("Arquivo HTML (*.html)", "*.html");
+            oFileChooser.getExtensionFilters().add(oExtFilter);
+            oFileChooser.setInitialFileName("analise_estatistica.html");
             break;
 
          default:
@@ -201,13 +199,13 @@ public class MainController {
             return;
       }
 
-      File file = fileChooser.showSaveDialog(null);
+      File oFile = oFileChooser.showSaveDialog(null);
 
-      if (file != null) {
-         try (FileWriter writer = new FileWriter(file)) {
+      if (oFile != null) {
+         try (FileWriter writer = new FileWriter(oFile)) {
             writer.write(this.txtPreview.getText());
-         } catch (IOException e) {
-            e.printStackTrace();
+         } catch (IOException oException) {
+            oException.printStackTrace();
             mostrarAlerta("Erro ao salvar arquivo.");
          }
       }
@@ -217,37 +215,37 @@ public class MainController {
    private void onChangeSeparador() {
       switch (this.comboOpcoes.getValue()) {
          case "Ponto e vírgula":
-            this.separador = ';';
+            this.cSeparador = ';';
             break;
          case "Vírgula":
-            this.separador = ',';
+            this.cSeparador = ',';
             break;
          case "Pipeline":
-            this.separador = '|';
+            this.cSeparador = '|';
             break;
          default:
-            this.separador = ';';
+            this.cSeparador = ';';
       }
    }
 
    @FXML
    private void onVisualizarHtml() {
-      if (this.tipoExportacao == null || this.tipoExportacao != "html") {
+      if (this.sTipoExportacao == null || this.sTipoExportacao != "html") {
          mostrarAlerta("Nenhum HTML gerado para visualizar.");
          return;
       }
 
       try {
-         File tempFile = File.createTempFile("preview_", ".html");
-         tempFile.deleteOnExit();
+         File oTempFile = File.createTempFile("preview_", ".html");
+         oTempFile.deleteOnExit();
 
-         try (FileWriter writer = new FileWriter(tempFile)) {
+         try (FileWriter writer = new FileWriter(oTempFile)) {
             writer.write(txtPreview.getText());
          }
 
-         Desktop.getDesktop().browse(tempFile.toURI());
-      } catch (IOException e) {
-         e.printStackTrace();
+         Desktop.getDesktop().browse(oTempFile.toURI());
+      } catch (IOException oException) {
+         oException.printStackTrace();
       }
    }
 
@@ -263,8 +261,7 @@ public class MainController {
          var db = event.getDragboard();
 
          if (db.hasFiles()) {
-            File file = db.getFiles().get(0);
-            processarArquivo(file);
+            processarArquivo(db.getFiles().get(0));
          }
 
          event.setDropCompleted(true);
@@ -272,15 +269,15 @@ public class MainController {
       });
    }
 
-   private void processarArquivo(File file) {
-      this.arquivoSelecionado = file;
-      this.lblArquivo.setText("✅ " + file.getName());
+   private void processarArquivo(File oFile) {
+      this.oArquivoSelecionado = oFile;
+      this.lblArquivo.setText("✅ " + oFile.getName());
    }
 
-   private void mostrarAlerta(String msg) {
-      Alert alert = new Alert(Alert.AlertType.WARNING);
-      alert.setHeaderText(null);
-      alert.setContentText(msg);
-      alert.showAndWait();
+   private void mostrarAlerta(String sMsg) {
+      Alert oAlert = new Alert(Alert.AlertType.WARNING);
+      oAlert.setHeaderText(null);
+      oAlert.setContentText(sMsg);
+      oAlert.showAndWait();
    }
 }

@@ -13,7 +13,6 @@ import java.nio.file.Files;
 import java.text.Normalizer;
 
 import tech.tablesaw.api.BooleanColumn;
-import tech.tablesaw.api.CategoricalColumn;
 import tech.tablesaw.api.NumericColumn;
 import tech.tablesaw.api.StringColumn;
 import tech.tablesaw.api.Table;
